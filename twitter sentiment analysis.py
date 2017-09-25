@@ -1,13 +1,13 @@
-from nltk.corpus import twitter_samples
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-import nltk.classify.util
-from nltk.classify import NaiveBayesClassifier
-negative=[]
+from nltk.corpus import twitter_samples #importing all the libraries
+from nltk.corpus import stopwords #stop word package is used to remove all un-useful words
+from nltk.tokenize import word_tokenize#converting text to words can be done using this package
+import nltk.classify.util #to find accuracy of our classification
+from nltk.classify import NaiveBayesClassifier # naive bayes classifier 
+negative=[] #creating positive and negative list to store positive comments and negative comments
 positive=[]
-def create_word_features(words):
-    x=words.split(" ")
-    useful_words=[]
+def create_word_features(words):# split the text into words
+    x=words.split(" ")#splitting passed on the space
+    useful_words=[] #list which contains the useful words to process
     useless_words=stopwords.words("english")
     for i in x:
         if(i.isalpha()==True)and i not in useless_words:
